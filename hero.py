@@ -1,4 +1,5 @@
 import json
+from flask import abort
 
 def get_data():
     with open('dota_hero.jp','r') as file_read:
@@ -19,4 +20,9 @@ def read_one(Heroname):
     Heroname = Heroname.replace('_',' ').lower()
     Heros = get_data()
     hero = list(filter(lambda hero: hero["name"].lower() == Heroname,Heros))
-    return hero[0]
+    if len(hero):
+        return hero[0]
+    else:
+        abort(
+            404,f"hero with name {Heroname} not found !"
+        )
