@@ -32,3 +32,47 @@ paths:
                   type: "string"
                 timestamp:
                   type: "string"
+  /hero:
+    get:
+      operationId: "hero.read"
+      tags:
+        - "Heros"
+      summary: "The Dota Heros data structure supported by the server application"
+      description: "Read the list of Heros"
+      responses:
+        200:
+          description: "Successful read Hero list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                name:
+                  type: "string"
+                img_link:
+                  type: "string"
+                ability:
+                  type: "string"
+                Bad_against:
+                  type: "array"
+                  items:
+                    properties:
+                      hero:
+                        type: "string"
+                      pts:
+                        type: "number"
+                Good_against:
+                  type: "array"
+                  items:
+                    properties:
+                      hero:
+                        type: "string"
+                      pts:
+                        type: "number"
+                Work_well_with:
+                  type: "array"
+                  items:
+                    type: "string"
+                Roles:
+                  type: "array"
+                  items:
+                    type: "string"
